@@ -25,6 +25,8 @@ coremark wget-ssl curl htop nano zram-swap kmod-lib-zstd kmod-tcp-bbr bash \
 kmod-usb2 kmod-usb3 automount /" include/target.mk
 sed -i "/dnsmasq \\\/d" include/target.mk
 
+curl -sfL https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/kernel/linux/modules/video.mk -o package/kernel/linux/modules/video.mk
+
 sed -i '/	refresh_config();/d' scripts/feeds
 [ ! -f feeds.conf ] && {
 sed -i '$a src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git;master' feeds.conf.default
