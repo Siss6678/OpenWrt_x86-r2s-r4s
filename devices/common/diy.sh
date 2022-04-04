@@ -4,8 +4,7 @@ shopt -s extglob
 
 commitid="$(curl -sfL https://github.com/openwrt/openwrt/tree/master/include | grep -o 'href=".*>kernel: 5.15' | head -1 | cut -d / -f 5 | cut -d '"' -f 1)"
 version="$(git rev-parse HEAD)"
-git checkout $commitid
-git checkout HEAD^
+git checkout master
 [ "$(echo $(git log -1 --pretty=short) | grep "kernel: bump 5.15")" ] && git checkout $commitid
 mv -f target/linux package/kernel package/firmware/linux-firmware include/kernel-version.mk include/kernel-5.15 include/kernel-defaults.mk .github/
 git checkout $version
