@@ -12,7 +12,7 @@ rm -rf target/linux package/kernel package/firmware/linux-firmware include/kerne
 mv -f .github/linux target/
 mv -f .github/kernel package/
 mv -f .github/linux-firmware package/firmware/
-mv -f  .github/(kernel-*,netfilter.mk) include/
+mv -f  .github/{kernel-*,netfilter.mk} include/
 sed -i 's/ libelf//' tools/Makefile
 
 kernel_v="$(cat include/kernel-5.15 | grep LINUX_KERNEL_HASH-5.15* | cut -f 2 -d - | cut -f 1 -d ' ')"
