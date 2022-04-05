@@ -6,7 +6,7 @@ commitid="$(curl -sfL https://github.com/openwrt/openwrt/tree/master/include | g
 version="$(git rev-parse HEAD)"
 git checkout master
 [ "$(echo $(git log -1 --pretty=short) | grep "kernel: bump 5.15")" ] && git checkout $commitid
-mv -f target/linux package/kernel package/firmware/linux-firmware include/(kernel-*,netfilter.mk) .github/
+mv -f target/linux package/kernel package/firmware/linux-firmware include/{kernel-*,netfilter.mk} .github/
 git checkout $version
 rm -rf target/linux package/kernel package/firmware/linux-firmware include/kernel-version.mk include/kernel-5.15 include/kernel-defaults.mk
 mv -f .github/linux target/
